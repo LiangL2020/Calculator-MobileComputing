@@ -15,15 +15,22 @@ class rename : AppCompatActivity() {
 
         val save = findViewById<Button>(R.id.back_main_rename)
         save.setOnClickListener {
-            call_activity()
+            call_main_calculator()
+        }
+
+        val origMessage = intent.getStringExtra("display_name")
+        val inputBox = findViewById<EditText>(R.id.rename_input).apply{
+            text = origMessage
         }
     }
 
     // GO TO MAIN ACTIVITY (CALCULATOR)
-    private fun call_activity(){
+    private fun call_main_calculator(){
+        // FIND USER INPUT
         val replaceTxt = findViewById<EditText>(R.id.rename_input)
         val message = replaceTxt.text.toString()
 
+        // GO BACK TO MAIN WITH USER INPUT
         val intent = Intent(this, MainActivity::class.java).also {
             it.putExtra("user_input_rename", message)
             startActivity(it)

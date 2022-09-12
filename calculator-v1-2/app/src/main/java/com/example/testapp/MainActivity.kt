@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 
@@ -64,13 +65,13 @@ class MainActivity : AppCompatActivity() {
         clear = findViewById(R.id.clear)
         del = findViewById(R.id.del)
 
-        // SEND US TO RENAME ACTIVITY
+        // GO TO RENAME ACTIVITY
         val renameBNT = findViewById<Button>(R.id.renameBNT)
         renameBNT.setOnClickListener{
-            val intent = Intent(this, rename::class.java)
-            startActivity(intent)
+            call_rename()
         }
 
+        // REPLACE DISPLAY NAME BY USER INPUT
         val message = intent.getStringExtra("user_input_rename")
         val display = findViewById<TextView>(R.id.displayName).apply {
             text = message
@@ -189,6 +190,18 @@ class MainActivity : AppCompatActivity() {
             currInt = currInt.substring(0,currInt.length-1)
             calc_txt.text = exp
             Log.i(activityTag, "last input deleted")
+        }
+    }
+
+    // GO TO RENAME ACTIVITY
+    private fun call_rename(){
+        // FIND DISPLAYED TITLE
+        val title = findViewById<TextView>(R.id.displayName)
+        val origMessage = title.text.toString()
+
+        val intent = Intent(this, rename::class.java).also{
+            it.putExtra("display_name", origMessage)
+            startActivity(it)
         }
     }
 
