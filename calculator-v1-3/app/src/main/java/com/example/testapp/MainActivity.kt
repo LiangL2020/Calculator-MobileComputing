@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.i(activityTag, "in onCreate")
+        Log.i(activityTag, "in onCreate: main activity")
 
         // ASSIGN COMPONENTS TO ID
         calc_txt = findViewById(R.id.input) as TextView
@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         val renameBNT = findViewById<Button>(R.id.renameBNT)
         renameBNT.setOnClickListener{
             call_rename()
+            Log.i(activityTag, "going to rename activity")
         }
 
         // REPLACE DISPLAY NAME BY USER INPUT
@@ -196,6 +197,7 @@ class MainActivity : AppCompatActivity() {
     // GO TO RENAME ACTIVITY
     private fun call_rename(){
         // FIND DISPLAYED TITLE
+        Log.i(activityTag, "in call_name()")
         val title = findViewById<TextView>(R.id.displayName)
         val origMessage = title.text.toString()
 
@@ -207,16 +209,17 @@ class MainActivity : AppCompatActivity() {
 
     // SAVE PARAMETERS
     override fun onSaveInstanceState(outState: Bundle) {
+        Log.i(activityTag, "in onSaveInstanceState: saving states")
         super.onSaveInstanceState(outState)
         outState.putInt("ans", ans)
         outState.putString("exp", exp)
         outState.putString("currInt", currInt)
         outState.putString("lastOp", lastOp)
-        Log.i(activityTag, "in onSaveInstanceState: saving states")
     }
 
     // RESTORE PARAMETERS
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        Log.i(activityTag, "in onRestoreInstanceState: restoring states")
         super.onRestoreInstanceState(savedInstanceState)
         ans = savedInstanceState.getInt("ans", 0)
         currInt = savedInstanceState.getString("currInt", "")
@@ -224,7 +227,6 @@ class MainActivity : AppCompatActivity() {
         exp = savedInstanceState.getString("exp", "")
         var textview = findViewById<TextView>(R.id.input)
         textview.text = exp
-        Log.i(activityTag, "in onRestoreInstanceState: restoring states")
     }
 
     // CALCULATE AFTER OBTAINING TWO NUMBERS USING LAST OPERATOR PRESSED
