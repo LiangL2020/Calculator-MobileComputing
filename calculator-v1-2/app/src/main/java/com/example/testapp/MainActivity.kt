@@ -10,22 +10,8 @@ import android.widget.ImageButton
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        val button = findViewById<Button>(R.id.renameBNT)
-        button.setOnClickListener{
-            val intent = Intent(this, rename::class.java)
-            startActivity(intent)
-        }
-
-        val message = intent.getStringExtra("user_input_rename")
-        val display = findViewById<TextView>(R.id.displayName).apply {
-            text = message
-        }
-    }
-    /*
+    // DEFINE COMPONENTS
     private lateinit var calc_txt: TextView
     private lateinit var b0: Button
     private lateinit var b1: Button
@@ -44,20 +30,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bdiv: Button
     private lateinit var clear: Button
     private lateinit var del: ImageButton
-    private lateinit var rename: Button
 
+    // DEFINE PARAMETERS
     var exp = ""
     var currInt = ""
     var ans = 0
     var lastOp = ""
     val activityTag = "activityTag"
 
+    // ONCREATE; ACTION LISTENERS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         Log.i(activityTag, "in onCreate")
 
+        // ASSIGN COMPONENTS TO ID
         calc_txt = findViewById(R.id.input) as TextView
         b0 = findViewById(R.id.button0)
         b1 = findViewById(R.id.button1)
@@ -76,8 +63,20 @@ class MainActivity : AppCompatActivity() {
         bdiv = findViewById(R.id.buttondiv)
         clear = findViewById(R.id.clear)
         del = findViewById(R.id.del)
-        rename = findViewById(R.id.renameBNT)
 
+        // SEND US TO RENAME ACTIVITY
+        val renameBNT = findViewById<Button>(R.id.renameBNT)
+        renameBNT.setOnClickListener{
+            val intent = Intent(this, rename::class.java)
+            startActivity(intent)
+        }
+
+        val message = intent.getStringExtra("user_input_rename")
+        val display = findViewById<TextView>(R.id.displayName).apply {
+            text = message
+        }
+
+        // ACTION LISTENERS FOR CALCULATOR BUTTONS
         b0.setOnClickListener{
             exp = exp + "0"
             currInt = currInt + "0"
@@ -191,13 +190,9 @@ class MainActivity : AppCompatActivity() {
             calc_txt.text = exp
             Log.i(activityTag, "last input deleted")
         }
-
-        rename.setOnClickListener{
-            val intent = Intent(this, rename::class.java)
-            startActivity(intent)
-        }
     }
 
+    // SAVE PARAMETERS
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt("ans", ans)
@@ -207,6 +202,7 @@ class MainActivity : AppCompatActivity() {
         Log.i(activityTag, "in onSaveInstanceState: saving states")
     }
 
+    // RESTORE PARAMETERS
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         ans = savedInstanceState.getInt("ans", 0)
@@ -218,6 +214,7 @@ class MainActivity : AppCompatActivity() {
         Log.i(activityTag, "in onRestoreInstanceState: restoring states")
     }
 
+    // CALCULATE AFTER OBTAINING TWO NUMBERS USING LAST OPERATOR PRESSED
     private fun checkLastOp(){
         if(lastOp == "+")
             ans = ans + currInt.toInt()
@@ -230,11 +227,4 @@ class MainActivity : AppCompatActivity() {
         else
             ans = ans + currInt.toInt()
     }
-
-//    private fun rename_onClick(view: View) {
-//
-//    }
-
- */
-
 }

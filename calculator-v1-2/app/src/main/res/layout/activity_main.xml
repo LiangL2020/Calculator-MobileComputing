@@ -182,7 +182,7 @@
     android:id="@+id/displayName"
     android:layout_width="wrap_content"
     android:layout_height="53dp"
-    android:text="@string/textViewDefault"
+    android:text="@string/displayName"
     android:textColor="@android:color/darker_gray"
     android:textSize="40sp"
     android:layout_marginTop="100dp"

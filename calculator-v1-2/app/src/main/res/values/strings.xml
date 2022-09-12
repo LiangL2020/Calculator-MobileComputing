@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calculator-Locale</string>
+    <string name="app_name">Calculator-Intent</string>
     <string name="button1" translatable="false">1</string>
     <string name="button2" translatable="false">2</string>
     <string name="button3" translatable="false">3</string>
@@ -19,6 +19,7 @@
     <string name="del" translatable="false"></string>
     <string name="renameBTN">rename</string>
     <string name="saveBTN">save</string>
+    <string name="displayName">Calculator</string>
 
     <string name="textViewDefault">Calculator</string>
 </resources>

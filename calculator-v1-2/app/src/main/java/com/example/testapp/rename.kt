@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 
 class rename : AppCompatActivity() {
+
+    // ONCREATE; ACTION LISTENER
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rename)
@@ -17,6 +19,7 @@ class rename : AppCompatActivity() {
         }
     }
 
+    // GO TO MAIN ACTIVITY (CALCULATOR)
     private fun call_activity(){
         val replaceTxt = findViewById<EditText>(R.id.rename_input)
         val message = replaceTxt.text.toString()
