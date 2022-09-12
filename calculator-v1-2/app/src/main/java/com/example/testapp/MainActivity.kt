@@ -14,20 +14,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button = findViewById<Button>(R.id.button)
+        val button = findViewById<Button>(R.id.renameBNT)
         button.setOnClickListener{
             val intent = Intent(this, rename::class.java)
             startActivity(intent)
         }
 
         val message = intent.getStringExtra("user_input_rename")
-        val textView = findViewById<TextView>(R.id.textView).apply {
+        val display = findViewById<TextView>(R.id.displayName).apply {
             text = message
         }
-
-
-
-
     }
     /*
     private lateinit var calc_txt: TextView
