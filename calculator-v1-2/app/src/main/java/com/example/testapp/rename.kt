@@ -14,14 +14,15 @@ class rename : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rename)
 
+        // GO TO MAIN ACTIVITY (CALCULATOR)
         val save = findViewById<Button>(R.id.back_main_rename)
         save.setOnClickListener {
             call_main_calculator()
         }
 
+        // REPLACE INPUT BOX TEXT WITH ORIGINAL TITLE
         val origMessage = intent.getStringExtra("display_name")
         val title = findViewById<TextView>(R.id.displayName)
-//        val origMessage = title.getText().toString()
         val inputBox = findViewById<EditText>(R.id.rename_input)
         inputBox.setText(origMessage)
 
