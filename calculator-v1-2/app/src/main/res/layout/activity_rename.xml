@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:text="type here"
+            android:text="@string/inputBox"
             android:textColor="@android:color/darker_gray"
             android:textSize="20sp">
         </EditText>

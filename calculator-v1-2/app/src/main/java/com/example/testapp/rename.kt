@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 
 class rename : AppCompatActivity() {
 
@@ -19,9 +20,11 @@ class rename : AppCompatActivity() {
         }
 
         val origMessage = intent.getStringExtra("display_name")
-        val inputBox = findViewById<EditText>(R.id.rename_input).apply{
-            text = origMessage
-        }
+        val title = findViewById<TextView>(R.id.displayName)
+//        val origMessage = title.getText().toString()
+        val inputBox = findViewById<EditText>(R.id.rename_input)
+        inputBox.setText(origMessage)
+
     }
 
     // GO TO MAIN ACTIVITY (CALCULATOR)

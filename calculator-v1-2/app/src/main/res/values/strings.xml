@@ -20,6 +20,7 @@
     <string name="renameBTN">rename</string>
     <string name="saveBTN">save</string>
     <string name="displayName">Calculator</string>
+    <string name="inputBox">type here</string>
 
     <string name="textViewDefault">Calculator</string>
 </resources>
