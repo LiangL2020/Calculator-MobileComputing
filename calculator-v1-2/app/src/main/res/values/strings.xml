@@ -17,6 +17,8 @@
     <string name="buttonEqual" translatable="false">=</string>
     <string name="clear">c</string>
     <string name="del" translatable="false"></string>
+    <string name="renameBTN">rename</string>
+    <string name="saveBTN">save</string>
 
     <string name="textViewDefault">Calculator</string>
 </resources>

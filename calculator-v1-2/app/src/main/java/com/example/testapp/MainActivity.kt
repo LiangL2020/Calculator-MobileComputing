@@ -1,14 +1,35 @@
 package com.example.testapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener{
+            val intent = Intent(this, rename::class.java)
+            startActivity(intent)
+        }
+
+        val message = intent.getStringExtra("user_input_rename")
+        val textView = findViewById<TextView>(R.id.textView).apply {
+            text = message
+        }
+
+
+
+
+    }
+    /*
     private lateinit var calc_txt: TextView
     private lateinit var b0: Button
     private lateinit var b1: Button
@@ -27,6 +48,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bdiv: Button
     private lateinit var clear: Button
     private lateinit var del: ImageButton
+    private lateinit var rename: Button
 
     var exp = ""
     var currInt = ""
@@ -58,6 +80,7 @@ class MainActivity : AppCompatActivity() {
         bdiv = findViewById(R.id.buttondiv)
         clear = findViewById(R.id.clear)
         del = findViewById(R.id.del)
+        rename = findViewById(R.id.renameBNT)
 
         b0.setOnClickListener{
             exp = exp + "0"
@@ -172,6 +195,11 @@ class MainActivity : AppCompatActivity() {
             calc_txt.text = exp
             Log.i(activityTag, "last input deleted")
         }
+
+        rename.setOnClickListener{
+            val intent = Intent(this, rename::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -207,18 +235,10 @@ class MainActivity : AppCompatActivity() {
             ans = ans + currInt.toInt()
     }
 
+//    private fun rename_onClick(view: View) {
+//
+//    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+ */
 
 }
